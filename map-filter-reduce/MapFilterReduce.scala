@@ -14,6 +14,10 @@ object MapFilterReduce {
     return result.reverse
   }
 
+  def map2[A, B] (f: (A, A) => B, seq1: List[A], seq2: List[A]): List[B] = {
+    return map ((args: (A, A)) => f (args._1, args._2), seq1.zip(seq2))
+  }
+
   /**
    * Implemeting our own filter.
    */
@@ -38,6 +42,18 @@ object MapFilterReduce {
     return list.foldLeft (List (): List[A])(_++_)
   }
 
+  /**
+   TODO: I have a hunch that foreach is the better iterator to use for
+   this...
+   map(IOBase.close, streams) # closes each stream on the list
+   map(Thread.join, threads) # waits for each thread to finish
+   */
+
+  def evaluate(a: List[Double], x: Double): Double = {
+    val xi = map ((i: Int) => pow (x, i), (0 to a.length).toList)
+      val axi = map2 ((x: Double, y: Double) => x*y, a, xi)
+    return axi.foldLeft (0: Double)(_+_)
+  }
 
   /**                                           
    * Map examples.
@@ -65,4 +81,10 @@ object MapFilterReduce {
     println (flatten (
               List (List (1, 2), List (3, 4), List (), List (5), List ())))
   }
+
+  /**
+   * Some useful functions in Function1
+   * andThen[A](g: (R) ⇒ A): (T1) ⇒ A
+   * compose[A](g: (A) ⇒ T1): (A) ⇒ R 
+   */
 }

@@ -16,7 +16,6 @@ object SectionExamples {
   }
 
   def filterWithFold[A](lst: List[A], f: A => Boolean): List[A] = {
-    lst.foldLeft(List[A]())(
-      (acc: List[A], x: A) => if (f(x)) x::acc else acc)
+    lst.foldLeft(List[A]())((acc: List[A], x: A) => if (f(x)) x::acc else acc)
   }
 }

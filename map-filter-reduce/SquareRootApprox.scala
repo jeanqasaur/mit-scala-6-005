@@ -26,12 +26,4 @@ object SquareRootApprox {
       abs(guess * guess - x) < 0.001
     sqrtIter(1.0, x)
   }
-
-  /* Exercise 4.4.1: The isGoodEnough test is not very precise for small
-     numbers and might lead to non-termination for very large ones (why?).
-     Design a different version of isGoodEnough which does not have these
-     problems.
-     
-     Hint:
-     http://bloodredsun.com/2011/06/22/doubles-financial-calculations/ */
 }
