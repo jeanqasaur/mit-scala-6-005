@@ -31,18 +31,6 @@
    3. Implement the evaluation of Boolean binary operations.
    BONUS: Add string expressions.
 */
-case object Unimplemented extends Exception
-case class Unexpected(msg: String) extends Exception
-
-/* Operators. */
-sealed abstract class Operator
-case object Plus extends Operator
-case object Minus extends Operator
-case object Times extends Operator
-case object Div extends Operator
-/* Exercise 2: Extend this with "And" and "Or." */
-
-/* Expressions can either be integer or boolean expressions. */
 sealed abstract class Expr
 sealed abstract class IntExpr extends Expr
 sealed abstract class BoolExpr extends Expr
@@ -52,6 +40,17 @@ case class IntBinop(op: Operator, e1: IntExpr, e2: IntExpr) extends IntExpr
 
 case class BoolConstant(v: Boolean) extends BoolExpr
 case class BoolBinop(op: Operator, e1: BoolExpr, e2: BoolExpr) extends BoolExpr
+
+/* Operators. */
+sealed abstract class Operator
+case object Plus extends Operator
+case object Minus extends Operator
+case object Times extends Operator
+case object Div extends Operator
+/* Exercise 2: Extend this with "And" and "Or." */
+
+case object Unimplemented extends Exception
+case class Unexpected(msg: String) extends Exception
 
 object SimpleEval {
   /* Evaluation functions. */
