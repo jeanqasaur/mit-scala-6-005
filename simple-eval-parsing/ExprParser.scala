@@ -8,8 +8,12 @@
   completed from the last recitation!
 
   We have the following exercises.
-  1. Add parsing support for "and" and "or" operators.
-  2. Add parsing support for Boolean expressions.
+  1. Thought question: what is the expected syntax for input expressions?
+  2. Try using the "apply" function to parse well-formed and poorly-formed
+     arithmetic expressions.  What currently happens if you try parsing
+     Boolean expressions? 
+  3. Add parsing support for "and" and "or" operators.
+  4. Add parsing support for Boolean expressions.
 
   You may find it useful to read the documentation for the RegexParser libary
   here:
