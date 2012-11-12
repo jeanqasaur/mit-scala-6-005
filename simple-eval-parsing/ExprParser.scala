@@ -32,7 +32,7 @@ object ExprParser extends RegexParsers {
     { v => IntConstant(v.toInt) }
   def intBinop  : Parser[IntExpr] =
     intExpr~operator~intExpr ^^ { case i1~op~i2 => IntBinop(op, i1, i2) }
-  def intExpr: Parser[IntExpr] = intConstant | intBinop
+  def intExpr: Parser[IntExpr] = intConstant | "(" ~> intBinop <~ ")"
 
   /* Boolean expressions. */
   def boolExpr: Parser[BoolExpr] = throw Unimplemented
